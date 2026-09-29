@@ -1,0 +1,28 @@
+{
+  "stage": "Stage 1 finite-device Landauer benchmark",
+  "N": 10,
+  "hopping_t": 1.0,
+  "lead_and_clean_device_onsite_epsilon_0": 0.0,
+  "contact_hopping_t_c": 1.0,
+  "barrier_strength_U": 1.5,
+  "barrier_site_index_zero_based": 4,
+  "energy_range": [
+    -2.2,
+    2.2
+  ],
+  "number_of_energy_points": 443,
+  "units": "consistent tight-binding energy units with hopping magnitude t=1",
+  "boundary_conditions": "open for the finite device; semi-infinite 1D leads",
+  "device_hamiltonian_convention": "H_ii=epsilon_i; H_i,i+1=H_i+1,i=-t",
+  "lead_band": [
+    -2.0,
+    2.0
+  ],
+  "lead_surface_green_function": "retarded branch; negative imaginary part inside the band",
+  "lead_self_energy": "Sigma^r=t_c^2*g_s^r, applied to the first and last device sites",
+  "device_green_function": "G^r=[E I-H_device-Sigma_L-Sigma_R]^-1; no additional broadening",
+  "broadening": "Gamma=i(Sigma^r-Sigma^{r dagger})",
+  "transmission": "T=Tr[Gamma_L G^r Gamma_R (G^r)^dagger]",
+  "barrier_definition": "single onsite increase U at zero-based device site 4",
+  "transmission_processing": "no normalization or upper clipping; only tiny roundoff negatives are set to zero"
+}

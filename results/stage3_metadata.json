@@ -1,0 +1,144 @@
+{
+  "stage": "Stage 3 disorder and localization in coherent quantum transport",
+  "model": "epsilon_i = epsilon_0 + w_i, independently sampled w_i ~ Uniform(-W/2, W/2)",
+  "master_seed": 20260317,
+  "seed_generation_convention": "SeedSequence(MASTER_SEED).spawn(total_streams), each child converted to a uint64 seed; fixed group order and distinct seed recorded for each realization",
+  "seed_streams": {
+    "single_realization_spectra": {
+      "count": 16,
+      "stream_index_range_half_open": [
+        0,
+        16
+      ]
+    },
+    "N40_ensemble": {
+      "count": 400,
+      "stream_index_range_half_open": [
+        16,
+        416
+      ]
+    },
+    "length_scaling": {
+      "count": 1200,
+      "stream_index_range_half_open": [
+        416,
+        1616
+      ]
+    },
+    "total_unique_seed_streams": 1616
+  },
+  "single_realization_spectra": {
+    "N": 40,
+    "W_values": [
+      0.0,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "realizations_per_W": 4,
+    "energy_range": [
+      -1.8,
+      1.8
+    ],
+    "energy_points": 181
+  },
+  "ensemble": {
+    "N": 40,
+    "W_values": [
+      0.0,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "energies": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "realizations_per_W": 100
+  },
+  "length_scaling": {
+    "N_values": [
+      10,
+      20,
+      40,
+      80
+    ],
+    "W_values": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "energies": [
+      0.0,
+      0.5
+    ],
+    "realizations_per_N_W": 100
+  },
+  "hopping_t": 1.0,
+  "onsite_energy_epsilon_0": 0.0,
+  "contact_hopping_t_c": 1.0,
+  "log_transmission_floor": 1e-12,
+  "log_floor_policy": "floor is applied only inside logarithms; counts of samples below the floor are stored per summary; transmission values themselves are unchanged",
+  "standard_deviation": "sample standard deviation with ddof=1",
+  "standard_error": "sample standard deviation divided by sqrt(number of realizations)",
+  "localization_fit_policy": "fit mean(log(T)) against N only for negative slope and R^2 >= 0.95 across all four sampled lengths; any fit is exploratory",
+  "numerical_conventions": {
+    "device_hamiltonian": "H_ii=epsilon_i and nearest-neighbour terms -t with open device boundaries",
+    "leads": "semi-infinite 1D nearest-neighbour leads with onsite epsilon_0 and hopping -t",
+    "self_energy": "Sigma^r=t_c^2*g_s^r at the endpoints",
+    "broadening": "Gamma=i(Sigma^r-Sigma^{r dagger})",
+    "transmission": "Tr[Gamma_L G^r Gamma_R (G^r)^dagger]",
+    "no_transmission_clipping_or_normalization": true
+  },
+  "exploratory_linear_fits": [
+    {
+      "W": 0.5,
+      "energy": 0.0,
+      "intercept": -0.022200244159563644,
+      "slope_per_site": -0.004103130878985199,
+      "r_squared": 0.9832223293865459,
+      "localization_length_convention": "xi=-1/slope only as exploratory finite-size estimate"
+    },
+    {
+      "W": 0.5,
+      "energy": 0.5,
+      "intercept": -0.020399472347200152,
+      "slope_per_site": -0.004936218472581728,
+      "r_squared": 0.980449406294278,
+      "localization_length_convention": "xi=-1/slope only as exploratory finite-size estimate"
+    },
+    {
+      "W": 1.0,
+      "energy": 0.0,
+      "intercept": 0.02170447007708381,
+      "slope_per_site": -0.018684309842448572,
+      "r_squared": 0.997416703650145,
+      "localization_length_convention": "xi=-1/slope only as exploratory finite-size estimate"
+    },
+    {
+      "W": 1.0,
+      "energy": 0.5,
+      "intercept": 0.018002602994318585,
+      "slope_per_site": -0.022049120265199642,
+      "r_squared": 0.999608390786148,
+      "localization_length_convention": "xi=-1/slope only as exploratory finite-size estimate"
+    },
+    {
+      "W": 2.0,
+      "energy": 0.0,
+      "intercept": 0.0944217170883318,
+      "slope_per_site": -0.07967199294786752,
+      "r_squared": 0.9959747851969344,
+      "localization_length_convention": "xi=-1/slope only as exploratory finite-size estimate"
+    },
+    {
+      "W": 2.0,
+      "energy": 0.5,
+      "intercept": -0.018818189845705557,
+      "slope_per_site": -0.08895644270778588,
+      "r_squared": 0.9981777428586769,
+      "localization_length_convention": "xi=-1/slope only as exploratory finite-size estimate"
+    }
+  ]
+}

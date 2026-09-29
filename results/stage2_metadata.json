@@ -1,0 +1,57 @@
+{
+  "stage": "Stage 2 quantum barriers, wells, resonant tunnelling, and LDOS",
+  "N": 60,
+  "hopping_t": 1.0,
+  "lead_and_background_onsite_epsilon_0": 0.0,
+  "contact_hopping_t_c": 1.0,
+  "single_barrier": {
+    "height": 1.5,
+    "site_index_zero_based": 29,
+    "width_sites": 1
+  },
+  "finite_well": {
+    "depth": 0.8,
+    "start_index_zero_based": 23,
+    "stop_index_exclusive": 37,
+    "width_sites": 14
+  },
+  "double_barrier": {
+    "height": 1.5,
+    "width_sites_each": 3,
+    "well_depth": 0.8,
+    "well_width_sites": 14,
+    "central_well_start_zero_based": 23,
+    "central_well_stop_exclusive": 37,
+    "symmetric": true
+  },
+  "energy_range": [
+    -1.98,
+    1.98
+  ],
+  "number_of_energy_points": 2401,
+  "peak_detection": {
+    "method": "local maxima with a fixed-window prominence estimate",
+    "minimum_prominence": 0.02,
+    "minimum_distance_points": 20,
+    "prominence_window_points_each_side": 80,
+    "safe_band_filter": "abs(E) < 1.9t"
+  },
+  "resonance_ldos_detuning": 0.04,
+  "primary_ldos_resonance_selection": "highest-transmission detected peak below the barrier-region band edge; central-well LDOS fraction is then measured independently",
+  "units": "consistent tight-binding energy units with hopping magnitude t=1",
+  "boundary_conditions": "open finite device; semi-infinite 1D leads",
+  "conventions": {
+    "device_hamiltonian": "H_ii=epsilon_i and nearest-neighbour terms -t",
+    "lead_band": [
+      -2.0,
+      2.0
+    ],
+    "self_energy": "Sigma^r=t_c^2*g_s^r at first and last device sites",
+    "device_green_function": "G^r=[E I-H_device-Sigma_L-Sigma_R]^-1; no added imaginary shift",
+    "broadening": "Gamma=i(Sigma^r-Sigma^{r dagger})",
+    "transmission": "Tr[Gamma_L G^r Gamma_R (G^r)^dagger]",
+    "local_density_of_states": "rho_i=-Im(G^r_ii)/pi",
+    "total_density_of_states": "rho=-Im(Tr(G^r))/pi",
+    "transmission_processing": "no normalization; only roundoff-scale negative results within the transmission function tolerance are set to zero"
+  }
+}
