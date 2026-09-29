@@ -1,14 +1,18 @@
 ﻿# Python bytecode and caches
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
+*.pyd
 *$py.class
 .pytest_cache/
 
-# Environments
+# Environments and local secrets
 .venv/
 venv/
 env/
 ENV/
+.env
+.env.*
 
 # Packaging and build output
 build/
@@ -19,14 +23,18 @@ dist/
 # Notebooks
 .ipynb_checkpoints/
 
-# Scientific outputs (keep directory placeholders and source-controlled figures)
-results/*
-!results/.gitkeep
-figures/*
-!figures/.gitkeep
+# Keep research figures and results source-controlled.
 
-# Editors and operating systems
+# Editors, temporary files, and operating systems
 .vscode/
 .idea/
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+*.bak
+*.orig
 .DS_Store
 Thumbs.db
+Desktop.ini

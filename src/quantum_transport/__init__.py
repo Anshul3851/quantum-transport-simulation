@@ -7,6 +7,7 @@ from .ensemble import transmission_statistics
 from .greens import advanced_device_green_function, retarded_device_green_function
 from .hamiltonian import tight_binding_hamiltonian
 from .leads import lead_self_energy, surface_green_function
+from .qpc import quantum_point_contact_potential
 from .potentials import (
     clean_potential,
     finite_well_potential,
@@ -55,6 +56,7 @@ __all__ = [
     "two_dimensional_self_energy_matrices",
     "two_dimensional_surface_green_function",
     "physical_conductance",
+    "quantum_point_contact_potential",
     "symmetric_double_barrier_potential",
     "tight_binding_hamiltonian",
     "total_density_of_states",

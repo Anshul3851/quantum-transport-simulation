@@ -64,3 +64,8 @@ Run `python scripts/run_transport_stage3.py` from the project root to regenerate
 Stage 4 extends the 1D framework to a finite-width 2D tight-binding strip with open hard-wall transverse boundaries and multiple propagating modes. The clean matched-strip benchmark compares numerical Landauer transmission with the analytic number of open transverse channels and reports conductance as both `g = T` and `G = (2e^2/h) T`.
 
 Run `python scripts/run_transport_stage4.py` from the project root. Stage 4 data and metadata are saved as `results/stage4_multichannel.csv`, `stage4_modes.csv`, and `stage4_metadata.json`; figures are saved under `figures/`. The derivation, measured comparison, and finite-size numerical limitations are in `report/stage4.md`, with an API-based walkthrough in `notebooks/04_multichannel_transport.ipynb`.
+
+
+## Stage 5: quantum point contact and channel filtering
+
+Stage 5 introduces a smooth, symmetric quantum point contact in the finite-width 2D strip and studies how gate strength filters transverse channels. It compares transmission with clean-lead and local constriction mode information, reports dimensionless and physical conductance, and visualizes the unnormalized spatial LDOS. The analysis and limitations are in `report/stage5.md`; the walkthrough is `notebooks/05_quantum_point_contact.ipynb`.

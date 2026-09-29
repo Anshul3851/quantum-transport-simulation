@@ -1,0 +1,212 @@
+{
+  "stage": "Stage 5: quantum point contact and channel filtering",
+  "geometry": {
+    "Lx": 40,
+    "Ly": 6,
+    "site_ordering": "index(x,y)=x*Ly+y",
+    "boundaries": "open device boundaries; hard-wall transverse semi-infinite leads"
+  },
+  "tight_binding": {
+    "hopping_t": 1.0,
+    "onsite_epsilon_0": 0.0,
+    "contact_hopping_t_c": 1.0,
+    "convention": "nearest-neighbour x/y Hamiltonian elements are -t"
+  },
+  "qpc_potential": {
+    "equation": "epsilon(x,y)=epsilon_0+Vg*exp(-(x-xc)^2/(2*sigma_x^2))*(1+alpha*((y-yc)/y_scale)^2)",
+    "gate_strengths": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "longitudinal_sigma_sites": 6.0,
+    "transverse_strength_alpha": 1.5,
+    "center_x": 19.5,
+    "center_y": 2.5,
+    "y_scale": 2.5,
+    "mirror_symmetric_in_x_and_y": true
+  },
+  "energy_grid": {
+    "minimum": -3.6,
+    "maximum": -1.2,
+    "points": 121,
+    "spacing": 0.020000000000000018,
+    "units": "tight-binding energy units"
+  },
+  "gate_scan_energies": [
+    -3.5,
+    -3.0,
+    -2.5,
+    -2.0,
+    -1.5
+  ],
+  "lead_transverse_mode_energies": [
+    -1.8019377358048376,
+    -1.246979603717467,
+    -0.4450418679126285,
+    0.44504186791262895,
+    1.2469796037174663,
+    1.801937735804838
+  ],
+  "lead_lower_mode_thresholds": [
+    -3.8019377358048376,
+    -3.2469796037174667,
+    -2.4450418679126287,
+    -1.554958132087371,
+    -0.7530203962825337,
+    -0.19806226419516193
+  ],
+  "local_centre_subbands_by_gate": {
+    "0.0": {
+      "transverse_energies": [
+        -1.8019377358048383,
+        -1.2469796037174672,
+        -0.4450418679126287,
+        0.4450418679126283,
+        1.2469796037174667,
+        1.8019377358048396
+      ],
+      "longitudinal_lower_thresholds": [
+        -3.801937735804838,
+        -3.246979603717467,
+        -2.4450418679126287,
+        -1.5549581320873718,
+        -0.7530203962825333,
+        -0.19806226419516038
+      ]
+    },
+    "0.25": {
+      "transverse_energies": [
+        -1.4656074914594726,
+        -0.8021035670270852,
+        0.02502903944534215,
+        0.9162780633226321,
+        1.7111590457013512,
+        2.1564060973916734
+      ],
+      "longitudinal_lower_thresholds": [
+        -3.4656074914594726,
+        -2.802103567027085,
+        -1.974970960554658,
+        -1.0837219366773678,
+        -0.28884095429864876,
+        0.15640609739167344
+      ]
+    },
+    "0.5": {
+      "transverse_energies": [
+        -1.14248886005521,
+        -0.37508442525732244,
+        0.488348471864477,
+        1.3808068133279143,
+        2.1953015755651757,
+        2.535438799303848
+      ],
+      "longitudinal_lower_thresholds": [
+        -3.1424888600552103,
+        -2.3750844252573224,
+        -1.511651528135523,
+        -0.6191931866720857,
+        0.1953015755651757,
+        0.5354387993038481
+      ]
+    },
+    "0.75": {
+      "transverse_energies": [
+        -0.8291044788454437,
+        0.03593672103555046,
+        0.9418003543969404,
+        1.8298792367911465,
+        2.699045905510166,
+        2.9459258232349645
+      ],
+      "longitudinal_lower_thresholds": [
+        -2.829104478845444,
+        -1.9640632789644494,
+        -1.0581996456030596,
+        -0.1701207632088535,
+        0.6990459055101659,
+        0.9459258232349645
+      ]
+    },
+    "1.0": {
+      "transverse_energies": [
+        -0.5230563611905653,
+        0.43288429994032374,
+        1.3843312738365265,
+        2.256851537112764,
+        3.221047462102921,
+        3.392586537695795
+      ],
+      "longitudinal_lower_thresholds": [
+        -2.5230563611905654,
+        -1.5671157000596763,
+        -0.6156687261634735,
+        0.2568515371127642,
+        1.2210474621029208,
+        1.392586537695795
+      ]
+    }
+  },
+  "local_channel_interpretation": "N_local_open_centre counts central-slice eigenmodes satisfying |E-epsilon_local,n|<=2t; it is an energetic local-mode indicator, not a conserved channel count of the nonuniform constriction.",
+  "conductance": {
+    "dimensionless": "g=T",
+    "physical": "G=(2e^2/h)T in siemens",
+    "conductance_quantum_S": 7.748091729863649e-05,
+    "constants_source": "exact SI defining constants (fallback)"
+  },
+  "baseline_clean_stage4_check": {
+    "sampled_energies": [
+      {
+        "energy": -3.5,
+        "N_open": 1,
+        "T_clean": 1.0000000000000002,
+        "absolute_error": 2.220446049250313e-16
+      },
+      {
+        "energy": -3.0,
+        "N_open": 2,
+        "T_clean": 1.9999999999999998,
+        "absolute_error": 2.220446049250313e-16
+      },
+      {
+        "energy": -2.2,
+        "N_open": 3,
+        "T_clean": 3.0000000000000018,
+        "absolute_error": 1.7763568394002505e-15
+      },
+      {
+        "energy": -1.3,
+        "N_open": 4,
+        "T_clean": 4.0000000000000036,
+        "absolute_error": 3.552713678800501e-15
+      }
+    ],
+    "maximum_absolute_T_minus_N_open": 3.552713678800501e-15,
+    "tolerance": 1e-08
+  },
+  "transmission_bound_check": {
+    "maximum_T_minus_N_open_across_all_gates_and_energies": 6.217248937900877e-15,
+    "tolerance": 1e-08,
+    "transmission_clipped": false
+  },
+  "gate_scan_nonincreasing_at_selected_energies": {
+    "-3.5": true,
+    "-3.0": true,
+    "-2.5": true,
+    "-2.0": true,
+    "-1.5": true
+  },
+  "ldos": {
+    "energy": -2.0,
+    "gate_strengths": [
+      0.25,
+      0.75
+    ],
+    "definition": "rho_i(E)=-Im(G^r_ii)/pi from Stage 2; raw values, no normalization",
+    "data_file": "results/stage5_qpc_ldos.csv"
+  },
+  "solver": "Dense linear solve for a 240-site device; no artificial energy broadening."
+}
