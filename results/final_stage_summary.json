@@ -1,0 +1,224 @@
+{
+  "summary_rows": [
+    {
+      "stage": "Stage 1",
+      "physical_system": "Matched finite 1D chain; single-site onsite barrier",
+      "primary_observable": "Landauer transmission T(E)",
+      "principal_numerical_result": "Clean T is unity within 1.78e-15 over |E|<=1.5; barrier T(0)=0.64.",
+      "validation_metric": "Existing-grid interior windows |E|<=1.5, 1.0, and 0.5 all retain unity clean-chain transmission.",
+      "main_limitation": "Finite N=10; the energy grid and ideal coherent 1D leads exclude exact band-edge points."
+    },
+    {
+      "stage": "Stage 2",
+      "physical_system": "Finite 1D symmetric double barrier with central well",
+      "primary_observable": "Resonant T(E) and site-resolved LDOS",
+      "principal_numerical_result": "At E=-0.73095, T=0.999991 and central-well LDOS fraction=0.8378; the fraction is much smaller at both saved detuned points.",
+      "validation_metric": "Five adjacent transmission samples around the peak are saved; the LDOS/total-DOS sums agree to roundoff.",
+      "main_limitation": "Only three resonance-centered LDOS energies are stored; a finite energy grid resolves a finite-width peak."
+    },
+    {
+      "stage": "Stage 3",
+      "physical_system": "Disordered finite 1D chains with independently seeded onsite profiles",
+      "primary_observable": "Mean, median, typical, and mean-log transmission",
+      "principal_numerical_result": "For N=40, E=0, W=0.5 to 2, mean T changes 0.8867 to 0.1935, while typical T changes to 0.07096 at W=2.",
+      "validation_metric": "Mean, median, typical, and mean-log T decrease with N in 6 of 6 sampled (W,E) groups.",
+      "main_limitation": "Finite ensembles (100 realizations per condition) and four lengths; trends and fits are not thermodynamic limits."
+    },
+    {
+      "stage": "Stage 4",
+      "physical_system": "Clean matched 2D hard-wall strip, width Ly=4",
+      "primary_observable": "Transmission versus open transverse modes",
+      "principal_numerical_result": "Away from thresholds, T matches N_open over 671 points; max |T-N_open|=7.11e-15.",
+      "validation_metric": "Recomputed using the saved 0.05 threshold exclusion; median |T-N_open|=8.88e-16.",
+      "main_limitation": "Clean matched finite strip; threshold neighborhoods are excluded and the device solver is dense."
+    },
+    {
+      "stage": "Stage 5",
+      "physical_system": "Smooth gated finite 2D quantum point contact, Lx=40, Ly=6",
+      "primary_observable": "Transmission and local spectral density versus gate strength",
+      "principal_numerical_result": "Gate scans are nonincreasing at 5/5 saved energies; max positive T-N_open over the full grid is 6.22e-15.",
+      "validation_metric": "Saved T stays within N_open to roundoff across all gates and energies; selected LDOS maps are raw spectral density.",
+      "main_limitation": "Five gate-scan energies and finite geometry; conductance plateaus are approximate and LDOS is not current density."
+    }
+  ],
+  "metrics": {
+    "stage1": {
+      "metadata_energy_grid_points": 443,
+      "window_metrics": {
+        "-1.5_to_1.5": {
+          "points": 301,
+          "clean_min": 0.9999999999999986,
+          "clean_max": 1.0000000000000018,
+          "clean_max_abs_deviation_from_one": 1.7763568394002505e-15,
+          "barrier_min": 0.44034248973485735,
+          "barrier_max": 0.64
+        },
+        "-1_to_1": {
+          "points": 201,
+          "clean_min": 0.9999999999999986,
+          "clean_max": 1.0000000000000018,
+          "clean_max_abs_deviation_from_one": 1.7763568394002505e-15,
+          "barrier_min": 0.572164391561428,
+          "barrier_max": 0.64
+        },
+        "-0.5_to_0.5": {
+          "points": 101,
+          "clean_min": 0.9999999999999986,
+          "clean_max": 1.0000000000000013,
+          "clean_max_abs_deviation_from_one": 1.4432899320127035e-15,
+          "barrier_min": 0.6251410297409656,
+          "barrier_max": 0.64
+        }
+      },
+      "barrier_transmission_at_nearest_zero_energy": {
+        "energy": 0.0,
+        "transmission": 0.64
+      }
+    },
+    "stage2": {
+      "resonance_samples": [
+        {
+          "energy": -0.7705500000000001,
+          "double_barrier_transmission": 0.009433424930076295,
+          "total_dos_from_site_sum": 8.297422565143032,
+          "saved_total_dos_from_summed_ldos": 8.297422565143034,
+          "absolute_site_sum_vs_saved_dos_difference": 1.7763568394002505e-15,
+          "central_well_ldos_fraction": 0.08572245537538194
+        },
+        {
+          "energy": -0.73095,
+          "double_barrier_transmission": 0.9999910471708057,
+          "total_dos_from_site_sum": 83.63395231493995,
+          "saved_total_dos_from_summed_ldos": 83.63395231493995,
+          "absolute_site_sum_vs_saved_dos_difference": 0.0,
+          "central_well_ldos_fraction": 0.837829501480231
+        },
+        {
+          "energy": -0.6913499999999999,
+          "double_barrier_transmission": 0.013613289034989854,
+          "total_dos_from_site_sum": 7.935905119498539,
+          "saved_total_dos_from_summed_ldos": 7.93590511949854,
+          "absolute_site_sum_vs_saved_dos_difference": 8.881784197001252e-16,
+          "central_well_ldos_fraction": 0.1110063851156632
+        }
+      ],
+      "selected_resonance_energy": -0.73095,
+      "five_point_transmission_neighborhood": [
+        {
+          "offset_points": -2,
+          "energy": -0.7342500000000001,
+          "transmission": 0.6094675301114567
+        },
+        {
+          "offset_points": -1,
+          "energy": -0.7325999999999999,
+          "transmission": 0.8619255414532628
+        },
+        {
+          "offset_points": 0,
+          "energy": -0.73095,
+          "transmission": 0.9999910471708057
+        },
+        {
+          "offset_points": 1,
+          "energy": -0.7293000000000001,
+          "transmission": 0.8672684590547586
+        },
+        {
+          "offset_points": 2,
+          "energy": -0.7276499999999999,
+          "transmission": 0.6203407255466161
+        }
+      ],
+      "central_well_site_range_zero_based": [
+        23,
+        37
+      ],
+      "maximum_absolute_site_sum_vs_saved_total_dos_difference": 1.7763568394002505e-15
+    },
+    "stage3": {
+      "ensemble_example_N40_E0_W2": {
+        "mean_T": 0.1935342430665197,
+        "median_T": 0.09176400339666382,
+        "typical_T": 0.0709624924495412,
+        "mean_log_T": -2.645603816885986
+      },
+      "length_metric_groups_checked": 6,
+      "monotonicity_violations": [],
+      "realizations_per_condition": 100
+    },
+    "stage4": {
+      "threshold_exclusion_distance": 0.05,
+      "retained_rows": 671,
+      "maximum_absolute_T_minus_N_open": 7.105427357601002e-15,
+      "median_absolute_T_minus_N_open": 8.881784197001252e-16
+    },
+    "stage5": {
+      "gate_scan_energies": [
+        -3.5,
+        -3.0,
+        -2.5,
+        -2.0,
+        -1.5
+      ],
+      "nonincreasing_gate_scan_energies": [
+        -3.5,
+        -3.0,
+        -2.5,
+        -2.0,
+        -1.5
+      ],
+      "nonmonotone_gate_scan_energies": [],
+      "transmission_grid_rows": 605,
+      "maximum_positive_T_minus_N_open": 6.217248937900877e-15,
+      "maximum_absolute_T_minus_N_open": 2.378648730276441,
+      "ldos_definition": "rho_i(E)=-Im(G^r_ii)/pi from Stage 2; raw values, no normalization",
+      "gate_scan_at_energy_minus_2": [
+        {
+          "gate_strength": 0.0,
+          "transmission": 3.000000000000001,
+          "N_open_lead": 3,
+          "N_local_open_centre": 3
+        },
+        {
+          "gate_strength": 0.25,
+          "transmission": 2.278134804537332,
+          "N_open_lead": 3,
+          "N_local_open_centre": 2
+        },
+        {
+          "gate_strength": 0.5,
+          "transmission": 1.9999396214345497,
+          "N_open_lead": 3,
+          "N_local_open_centre": 2
+        },
+        {
+          "gate_strength": 0.75,
+          "transmission": 1.2814170967858387,
+          "N_open_lead": 3,
+          "N_local_open_centre": 1
+        },
+        {
+          "gate_strength": 1.0,
+          "transmission": 1.000064085439017,
+          "N_open_lead": 3,
+          "N_local_open_centre": 1
+        }
+      ],
+      "ldos_sums_at_energy_minus_2": [
+        {
+          "energy": -2.0,
+          "gate_strength": 0.25,
+          "full_device_ldos_sum": 28.55775612865378,
+          "site_count": 240
+        },
+        {
+          "energy": -2.0,
+          "gate_strength": 0.75,
+          "full_device_ldos_sum": 24.6295663735185,
+          "site_count": 240
+        }
+      ]
+    }
+  }
+}
