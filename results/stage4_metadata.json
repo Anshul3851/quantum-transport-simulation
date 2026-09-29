@@ -1,0 +1,115 @@
+{
+  "stage": "Stage 4: 2D multi-channel transport and conductance quantization",
+  "geometry": {
+    "longitudinal_length_Lx": 30,
+    "transverse_width_Ly": 4,
+    "site_ordering": "index(x,y) = x*Ly + y",
+    "boundary_conditions": "open along both device axes and hard-wall in lead transverse direction"
+  },
+  "model": {
+    "hopping_t": 1.0,
+    "onsite_epsilon_0": 0.0,
+    "lead_device_coupling_t_c": 1.0,
+    "hamiltonian_convention": "H_ii=epsilon_i; all nearest-neighbour x/y matrix elements are -t"
+  },
+  "energy_grid": {
+    "minimum": -3.75,
+    "maximum": 3.75,
+    "points": 751,
+    "units": "tight-binding energy units"
+  },
+  "transverse_modes": [
+    {
+      "mode_index": 1,
+      "transverse_energy": -1.6180339887498947,
+      "lower_opening_threshold": -3.618033988749895,
+      "upper_closing_threshold": 0.3819660112501053
+    },
+    {
+      "mode_index": 2,
+      "transverse_energy": -0.6180339887498946,
+      "lower_opening_threshold": -2.6180339887498945,
+      "upper_closing_threshold": 1.3819660112501055
+    },
+    {
+      "mode_index": 3,
+      "transverse_energy": 0.6180339887498952,
+      "lower_opening_threshold": -1.3819660112501047,
+      "upper_closing_threshold": 2.6180339887498953
+    },
+    {
+      "mode_index": 4,
+      "transverse_energy": 1.6180339887498942,
+      "lower_opening_threshold": -0.38196601125010576,
+      "upper_closing_threshold": 3.618033988749894
+    }
+  ],
+  "E_mode_thresholds": [
+    {
+      "mode_index": 1,
+      "transverse_energy": -1.6180339887498947,
+      "threshold_type": "lower/opening",
+      "energy": -3.618033988749895
+    },
+    {
+      "mode_index": 2,
+      "transverse_energy": -0.6180339887498946,
+      "threshold_type": "lower/opening",
+      "energy": -2.6180339887498945
+    },
+    {
+      "mode_index": 3,
+      "transverse_energy": 0.6180339887498952,
+      "threshold_type": "lower/opening",
+      "energy": -1.3819660112501047
+    },
+    {
+      "mode_index": 4,
+      "transverse_energy": 1.6180339887498942,
+      "threshold_type": "lower/opening",
+      "energy": -0.38196601125010576
+    },
+    {
+      "mode_index": 1,
+      "transverse_energy": -1.6180339887498947,
+      "threshold_type": "upper/closing",
+      "energy": 0.3819660112501053
+    },
+    {
+      "mode_index": 2,
+      "transverse_energy": -0.6180339887498946,
+      "threshold_type": "upper/closing",
+      "energy": 1.3819660112501055
+    },
+    {
+      "mode_index": 3,
+      "transverse_energy": 0.6180339887498952,
+      "threshold_type": "upper/closing",
+      "energy": 2.6180339887498953
+    },
+    {
+      "mode_index": 4,
+      "transverse_energy": 1.6180339887498942,
+      "threshold_type": "upper/closing",
+      "energy": 3.618033988749894
+    }
+  ],
+  "surface_green_function": "Diagonalize H_y; evaluate existing retarded semi-infinite 1D surface g_n^r(E) with onsite epsilon_n and longitudinal hopping t; transform U diag(g_n) U^dagger back to transverse-site basis.",
+  "self_energy": "Sigma_boundary = t_c^2 g_surface; embedded only on the first/last longitudinal slice.",
+  "transmission": "Tr[Gamma_L G^r Gamma_R G^a], Gamma=i(Sigma-Sigma^dagger); no artificial broadening, clipping, or normalization.",
+  "conductance": {
+    "dimensionless": "g=T",
+    "physical": "G=(2e^2/h)T in siemens",
+    "constants_source": "exact SI defining constants (fallback)"
+  },
+  "clean_matched_check": {
+    "energy_samples_excluded_near_any_mode_threshold": 80,
+    "threshold_exclusion_distance": 0.05,
+    "energy_samples_checked_away_from_thresholds": 671,
+    "maximum_absolute_T_minus_N_open_away_from_thresholds": 7.105427357601002e-15,
+    "median_absolute_T_minus_N_open_away_from_thresholds": 8.881784197001252e-16,
+    "mean_absolute_T_minus_N_open_away_from_thresholds": 1.2027140336811122e-15,
+    "validation_tolerance": 1e-08
+  },
+  "dense_method_limit": "Dense solve used for Lx*Ly=120 device sites; intended for moderate strip sizes."
+}

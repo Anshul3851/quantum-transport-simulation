@@ -46,7 +46,7 @@ The pytest suite checks the Hamiltonian, retarded lead branch and self-energy, d
 
 ## Current limitations
 
-The model is coherent, non-interacting, one-dimensional, and single-channel. Leads are ideal semi-infinite nearest-neighbour chains coupled through scalar endpoint hoppings. The barrier is a single static onsite perturbation. The project does not yet include disorder averages, localization analysis, inelastic scattering, finite temperature, multiple channels, higher-dimensional devices, or self-consistent potentials. Exact band-edge energies are excluded from the benchmark grid because the lead broadening vanishes there and the effective matrix can be singular; no artificial broadening is added to regularize them.
+The transport models are coherent and non-interacting, with ideal semi-infinite nearest-neighbour leads. Stages 1?3 study 1D devices, including static onsite disorder; Stage 4 adds a clean finite-width 2D strip. The project does not include inelastic scattering, finite temperature, magnetic fields, spin-orbit coupling, interactions, or self-consistent potentials. Exact band-edge energies are excluded from the benchmark grid because the lead broadening vanishes there and the effective matrix can be singular; no artificial broadening is added to regularize them.
 
 ## Stage 2: barriers, wells, and local density of states
 
@@ -57,3 +57,10 @@ Stage 2 extends the clean-chain and single-barrier calculation to finite wells a
 Stage 3 samples independent onsite profiles `epsilon_i = epsilon_0 + w_i`, with `w_i ~ Uniform(-W/2, W/2)`, and measures coherent transmission for finite 1D devices. The reproducible run uses `N = 40`, `t = epsilon_0 = 0`, `t_c = 1`, 100 realizations per disorder/energy condition, and a recorded master seed. It reports arithmetic mean, median, sample standard deviation, standard error, mean log-transmission, and typical transmission, plus a separate length-dependence study for `N = 10, 20, 40, 80`.
 
 Run `python scripts/run_transport_stage3.py` from the project root to regenerate Stage 3 tables, metadata, and figures. The analysis and finite-size interpretation are documented in `report/stage3.md`; the walkthrough is `notebooks/03_disorder_and_localization.ipynb`. This finite ensemble demonstrates disorder-dependent suppression and length trends for the sampled conditions; it is not a thermodynamic localization-length determination.
+
+
+## Stage 4: 2D multi-channel transport
+
+Stage 4 extends the 1D framework to a finite-width 2D tight-binding strip with open hard-wall transverse boundaries and multiple propagating modes. The clean matched-strip benchmark compares numerical Landauer transmission with the analytic number of open transverse channels and reports conductance as both `g = T` and `G = (2e^2/h) T`.
+
+Run `python scripts/run_transport_stage4.py` from the project root. Stage 4 data and metadata are saved as `results/stage4_multichannel.csv`, `stage4_modes.csv`, and `stage4_metadata.json`; figures are saved under `figures/`. The derivation, measured comparison, and finite-size numerical limitations are in `report/stage4.md`, with an API-based walkthrough in `notebooks/04_multichannel_transport.ipynb`.
